@@ -1,0 +1,24 @@
+nav.navbar.navbar-default.navbar-static-top
+  .container-fluid
+    .navbar-header
+      .navbar-brand(href="{{vm.home}}")
+        span(ng-bind="vm.brandName")
+
+    .collapse.navbar-collapse(id="bs-example-navbar-collapse-6")
+
+      ul.nav.navbar-nav
+        li.active
+          a(ng-href="#") Home
+        li
+          a(ng-href="#") About
+        li
+          a(ng-href="#") Contact
+
+      ul.nav.navbar-nav.navbar-right
+        li(ng-show='vm.isLoggedIn()')
+          p.navbar-text
+            | こんにちは
+            span(ng-bind="vm.getCurrentUser().nickname")
+            | さん！
+        li(ng-show='vm.isLoggedIn()')
+          a(href='', ng-click='vm.logout()') ログアウト
